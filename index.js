@@ -621,9 +621,10 @@ function animate(now)
         tile.update()
         tile.draw()
         })
-
-        mario.draw()
+        
         mario.update(tiles)
+        mario.draw()
+        
 
         flag.draw()
         flag.update(mario.x, mario.y)

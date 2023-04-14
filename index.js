@@ -356,9 +356,9 @@ class Mario
                     }
                     
                 }
-                else if (tile.typex == 5)
+                else if (tile.typex == 5 && !this.grounded)
                 {
-                    if (this.x + 40 > tile.x * 64 + CAM_X && this.x < tile.x * 64 + CAM_X + 64 && this.y + 40 > tile.y * 64 + CAM_Y && this.y < tile.y * 64 + CAM_Y + 64 && tile.typex != -1)
+                    if (this.x + 40 > tile.x * 64 + CAM_X && this.x < tile.x * 64 + CAM_X + 64 && this.y + 30 > tile.y * 64 + CAM_Y && this.y < tile.y * 64 + CAM_Y + 64 && tile.typex != -1)
                     {
                         flag.active = false
                         CAM_X = 0
@@ -621,10 +621,9 @@ function animate(now)
         tile.update()
         tile.draw()
         })
-        
-        mario.update(tiles)
+
         mario.draw()
-        
+        mario.update(tiles)
 
         flag.draw()
         flag.update(mario.x, mario.y)
@@ -696,6 +695,18 @@ addEventListener('keydown', ({keyCode}) => {
         case 68:
         //s
             keys.right.pressed = true
+            break;
+        case 38:
+            keys.up.pressed = true
+            break;
+        case 37:
+            keys.left.pressed = true
+            break;
+        case 40:
+            keys.down.pressed = true
+            break;
+        case 39:
+                keys.right.pressed = true
             break;
         case 69:
             if (edit == false)
@@ -770,6 +781,18 @@ addEventListener('keyup', ({keyCode}) => {
             break;
         case 68:
         //s
+            keys.right.pressed = false
+            break;
+        case 38:
+            keys.up.pressed = false
+            break;
+        case 37:
+            keys.left.pressed = false
+            break;
+        case 40:
+            keys.down.pressed = false
+            break;
+        case 39:
             keys.right.pressed = false
             break;
     }

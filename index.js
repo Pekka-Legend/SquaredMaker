@@ -317,6 +317,8 @@ class Mario
                             this.speed = 12
                         }
 
+                        
+
 
                         CAM_Y = this.ly
                     
@@ -327,6 +329,11 @@ class Mario
 
 
                         this.yvel = 0
+                        if (tile.typex == 6 && this.grounded)
+                        {
+                            this.yvel = 25
+                            this.grounded = false
+                        }
                     
                     }
                 }
@@ -741,6 +748,9 @@ addEventListener('keydown', ({keyCode}) => {
             break;
         case 54:
             block = 5
+            break;
+        case 55:
+            block = 6
             break;
 
         case 48:

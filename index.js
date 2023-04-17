@@ -6,7 +6,7 @@ canvas.height = 640
 save = false
 var mousedown = false
 
-var CAM_X = 0
+var CAM_X = 0 + 64 + 64
 var CAM_Y = -640 - 64
 
 
@@ -168,7 +168,7 @@ class Button
             {
                 if (mousedown)
                 {
-                    alert("WASD to move, E to edit, Esc to exit play mode, 1-6 for the different blocks, 0 for eraser")
+                    alert("WASD to move, E to edit, Esc to exit play mode, 1-7 for the different blocks, 0 for eraser")
                     alert("The player wins by bringing the green flag to the grey flag")
                     mousedown = false
                 }
@@ -218,7 +218,7 @@ class Mario
 {
     constructor()
     {
-        this.x = 128
+        this.x = 256
         this.lx = 0
         this.ly = 0
         this.espeed = 15
@@ -331,7 +331,7 @@ class Mario
                         this.yvel = 0
                         if (tile.typex == 6 && this.grounded)
                         {
-                            this.yvel = 25
+                            this.yvel = 23
                             this.grounded = false
                         }
                     
@@ -489,7 +489,7 @@ class EditMouse
 
 function LoadLevel()
 {
-    CAM_X = 0
+    CAM_X = 0 + 128
             CAM_Y = -640 - 64
             flag.active = false
             var types = prompt("Enter a level code (if you want to keep your level, hit ok without entering anything):  ")
@@ -602,17 +602,17 @@ function animate(now)
         c.clearRect(0, 0, canvas.width, canvas.height);
         
 
-        if (CAM_X > 0 + 64)
+        if (CAM_X > 0 + 64 + 128)
         {
-            CAM_X = 0 + 64
+            CAM_X = 0 + 64 + 128
         }
         if (CAM_Y > 320)
         {
             CAM_Y = 320
         }
-        if (CAM_X < -2816 + 80 + 64)
+        if (CAM_X < -2816 + 80 + 64 + 128)
         {
-            CAM_X =  -2816 + 80 + 64
+            CAM_X =  -2816 + 80 + 64 + 128
         }
         if (CAM_Y < -640 - 256)
         {

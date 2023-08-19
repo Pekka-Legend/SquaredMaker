@@ -350,7 +350,7 @@ class Mario
                     if (this.x + 40 > tile.x * 64 + CAM_X && this.x < tile.x * 64 + CAM_X + 64 && this.y + 40 > tile.y * 64 + CAM_Y && this.y < tile.y * 64 + CAM_Y + 64 && tile.typex != -1)
                     {
                         flag.active = false
-                        CAM_X = 0
+                        CAM_X = 0 + 64 + 64
                         CAM_Y = -640 - 64
                         this.xvel = 0
                         this.yvel = 0
@@ -368,7 +368,7 @@ class Mario
                     if (this.x + 40 > tile.x * 64 + CAM_X && this.x < tile.x * 64 + CAM_X + 64 && this.y + 30 > tile.y * 64 + CAM_Y && this.y < tile.y * 64 + CAM_Y + 64 && tile.typex != -1)
                     {
                         flag.active = false
-                        CAM_X = 0
+                        CAM_X =  0 + 64 + 64
                         CAM_Y = -640 - 64
                         tiles.forEach(tile =>{
                             if (tile.typex == -3)
@@ -394,7 +394,7 @@ class Mario
                         if (tile.typex == 5)
                         {
                             flag.active = false
-                            CAM_X = 0
+                            CAM_X =  0 + 64 + 64
                             CAM_Y = -640 - 64
                             this.xvel = 0
                             this.yvel = 0
@@ -489,7 +489,7 @@ class EditMouse
 
 function LoadLevel()
 {
-    CAM_X = 0 + 128
+    CAM_X =  0 + 64 + 64
             CAM_Y = -640 - 64
             flag.active = false
             var types = prompt("Enter a level code (if you want to keep your level, hit ok without entering anything):  ")
@@ -604,7 +604,7 @@ function animate(now)
 
         if (CAM_X > 0 + 64 + 128)
         {
-            CAM_X = 0 + 64 + 128
+            CAM_X =  0 + 64 + 128
         }
         if (CAM_Y > 320)
         {
